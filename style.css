@@ -1,0 +1,227 @@
+/*  RESET (Optional but recommended) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Important for responsive layouts */
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary:#01000a;
+    --secondary: #F77F00 ;
+    --background:#040014;
+    --accent: #e2effa ;
+    --box-shadow: 0.5rem 1.3rem rgba(253, 252, 252, 0.171);
+}
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+/*  GENERAL STYLES  */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*  HEADER AND NAVIGATION  */
+header {
+    background-color: var(--background);
+    color: var(--secondary);
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.logo {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;  /* shorthand for margin-left and margin-right */
+}
+
+nav a {
+    color: var(--secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: var(--secondary);
+    color: var(--background);
+    font-weight: 900;
+}
+
+/*  MAIN CONTENT  */
+main {
+    padding: 2rem 0;
+}
+
+/*  HERO SECTION  */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--accent);
+    border-radius: 0.5rem;
+}
+
+.hero-content {
+    width: 60%;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-image {
+    width: 40%;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/*  FEATURES SECTION  */
+#features {
+    padding: 2rem;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.feature img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    object-fit: contain;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/*  TESTIMONIALS SECTION  */
+#testimonials {
+    padding: 2rem;
+    text-align: center;
+    background-color: #e9e9e9;
+}
+
+.testimonial {
+    margin-bottom: 1rem;
+}
+
+.testimonial p.author {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/*  CTA SECTION  */
+#cta {
+    padding: 2rem;
+    text-align: center;
+}
+
+/*  FOOTER  */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/*  MEDIA QUERIES FOR RESPONSIVENESS  */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column; /* Stack content */
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .hero-image {
+        width: 80%; /* Adjust image width */
+        margin: 0 auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav li{
+        margin-bottom: 1rem;
+    }
+}
+
+/* Phone (max-width: 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    /* Further adjustments as needed for phones */
+    .features-grid {
+      grid-template-columns: 1fr; /* Stack features vertically */
+    }
+  }
