@@ -8,7 +8,7 @@
 }
 :root{
     --primary:#01000a;
-    --secondary: #F77F00 ;
+    --secondary:rgb(0, 8, 2) ;
     --background:#040014;
     --accent: #e2effa ;
     --box-shadow: 0.5rem 1.3rem rgba(253, 252, 252, 0.171);
@@ -38,11 +38,12 @@ img {
 header {
     background-color: var(--background);
     color: var(--secondary);
-    padding: 1rem 0;
+    padding: 1rem 1rem;
+    max-width: 100%;
 }
 
 nav {
-    display: flex;
+    display:flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
@@ -66,16 +67,26 @@ nav a {
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
-    font-weight: 500;
+    font-weight: 900;
 }
 
 nav a:hover,
 nav a.active {
-    background-color: var(--secondary);
+    background-color: var(--accent);
     color: var(--background);
     font-weight: 900;
 }
-
+/*  Menu Icon (Hidden by default on larger screens)  */
+.menu-icon {
+    display: none;        /* Hide on larger screens */
+    font-size: 2rem;
+    color: var(--primary);
+    cursor: pointer;
+    position: fixed;       /* Fixed position for mobile */
+    top: 1rem;             /* Adjust position */
+    left: 1rem;            /* Adjust position */
+    z-index: 1001;        /* Ensure it's above other elements */
+}
 /*  MAIN CONTENT  */
 main {
     padding: 2rem 0;
@@ -140,9 +151,9 @@ main {
 
 .feature {
     padding: 1.5rem;
-    background-color: white;
+    background-color: var(--accent);
     border-radius: 0.5rem;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 10px rgba(7, 7, 245, 0.1);
 }
 
 .feature img {
@@ -161,7 +172,7 @@ main {
 #testimonials {
     padding: 2rem;
     text-align: center;
-    background-color: #e9e9e9;
+    background-color: var();
 }
 
 .testimonial {
@@ -191,6 +202,45 @@ footer {
 
 /* Tablet (max-width: 768px) */
 @media (max-width: 768px) {
+
+    .menu-icon {
+        display: block;    /* Show on smaller screens */
+        transition: opacity 0.2s ease;
+    }
+    .menu-icon.hidden {
+        opacity: 0;          /* Hide the menu icon */
+        pointer-events: none; /* Prevent clicks when hidden */
+    }
+    header {
+        position: fixed;
+        display: flex;
+        flex-direction: column; 
+        top: 0;
+        left: -250px;         /* Hide off-screen initially */
+        width: 30%;
+        height: 100%;
+        background-color: #b1d9fa;
+        transition: left 0.3s ease;  /* Smooth transition */
+        z-index: 1000;       /* Ensure it's above other elements */
+        overflow-y: auto;    /* Enable scrolling if the menu is long */
+        text-align: left;      /* Align text to the left */
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: left;
+        padding: 4rem 0;
+    }
+
+    nav li {
+        margin: 10px 0;
+        color: var(--primary);
+    }
+    header.open {
+        left: 0;             /* Slide in when the 'open' class is added */
+    }
+
     #hero {
         flex-direction: column; /* Stack content */
         text-align: center;
@@ -204,24 +254,64 @@ footer {
         width: 80%; /* Adjust image width */
         margin: 0 auto;
     }
-
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav li{
-        margin-bottom: 1rem;
+    
+    .logo{
+        display: none;
     }
 }
 
 /* Phone (max-width: 480px) */
 @media (max-width: 480px) {
+    
+    .menu-icon {
+        display: block;    /* Show on smaller screens */
+        transition: opacity 0.2s ease;
+    }
+    .menu-icon.hidden {
+        opacity: 0;          /* Hide the menu icon */
+        pointer-events: none; /* Prevent clicks when hidden */
+    }
+    header {
+        max-width: 25%;
+        position: fixed;
+        display: flex;
+        flex-direction: column; 
+        top: 0;
+        left: -250px;         /* Hide off-screen initially */
+        width: 250px;
+        height: 100%;
+        background-color: #b1d9fa;
+        transition: left 0.3s ease;  /* Smooth transition */
+        z-index: 1000;       /* Ensure it's above other elements */
+        overflow-y: auto;    /* Enable scrolling if the menu is long */
+        text-align: left;      /* Align text to the left */
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center;
+        padding: 4rem 0;
+    }
+
+    nav li {
+        margin: 10px 0;
+        color: var(--primary);
+    }
+    header.open {
+        left: 0;             /* Slide in when the 'open' class is added */
+    }
+
     h1 {
         font-size: 2rem;
+    }
+    .container {
+        padding: 10px;
     }
 
     /* Further adjustments as needed for phones */
     .features-grid {
       grid-template-columns: 1fr; /* Stack features vertically */
     }
+    
   }
