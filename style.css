@@ -217,7 +217,7 @@ footer {
         flex-direction: column; 
         top: 0;
         left: -250px;         /* Hide off-screen initially */
-        width: 30%;
+        width: 50%;
         height: 100%;
         background-color: #b1d9fa;
         transition: left 0.3s ease;  /* Smooth transition */
@@ -278,7 +278,7 @@ footer {
         flex-direction: column; 
         top: 0;
         left: -250px;         /* Hide off-screen initially */
-        width: 250px;
+        width: 40%;
         height: 100%;
         background-color: #b1d9fa;
         transition: left 0.3s ease;  /* Smooth transition */
@@ -295,7 +295,7 @@ footer {
     }
 
     nav li {
-        margin: 10px 0;
+        margin: 10px -45px ;
         color: var(--primary);
     }
     header.open {
